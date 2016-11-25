@@ -15,7 +15,7 @@ import org.parceler.Parcels;
 
 public class MainActivity extends AppCompatActivity  implements MovieClickListener{
 
-    boolean mIsTwoPane = false;
+    public static boolean mIsTwoPane = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,9 @@ public class MainActivity extends AppCompatActivity  implements MovieClickListen
         //check if Twopane
         if(null != findViewById(R.id.detail_movie_fragment)){
             mIsTwoPane = true;
-            //TODO open first Movie Details
+
         }
+        movieFragment.setFirstMovieDetail();
 
 
     }
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity  implements MovieClickListen
             DetailMovieFragment detailMovieFragment = new DetailMovieFragment();
             Bundle extras = new Bundle();
             extras.putParcelable("current Movie" ,Parcels.wrap(movie));
+            extras.putBoolean("TwoPane" ,mIsTwoPane);
             detailMovieFragment.setArguments(extras);
             getSupportFragmentManager()
                     .beginTransaction()

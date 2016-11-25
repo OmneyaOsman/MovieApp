@@ -226,11 +226,13 @@ public class MovieFragment extends Fragment  {
 
 
     }
-
+//check if twoPane select first movie
     public void setFirstMovieDetail(){
-        if(movieAdapter!= null){
+        if(movieAdapter!= null && MainActivity.mIsTwoPane){
             gridView.setSelection(0);
             movieListener.onMovieClickListener(movies.get(0));
         }
     }
+
+
 }

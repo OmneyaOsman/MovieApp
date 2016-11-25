@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/poster_image_view_detail"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/placeholder" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_space"
+            android:clickable="true"
+            android:tint="@android:color/background_light"
+            app:fabSize="normal"
+            app:srcCompat="@android:drawable/star_off"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"/>
+
+        <!--TODO make geradiant for title background-->
+
+        <TextView
+
+            android:id="@+id/movie_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:fontFamily="sans-serif-medium"
+            android:paddingBottom="@dimen/padding_8"
+            android:paddingTop="@dimen/padding_8"
+            android:paddingEnd="@dimen/padding_8"
+            android:paddingStart="@dimen/padding_8"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:layout_alignBottom="@id/poster_image_view_detail"
+            tools:text="movie name"
+            android:gravity="center_horizontal"
+            android:elevation="4dp"
+            />
+
+
+    </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="vertical"
+                android:paddingRight="@dimen/padding_space">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/trailers_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_8"
+                    app:srcCompat="@android:drawable/ic_media_play" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trailers"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/padding_8">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/reviews_im_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryDark"
+                    android:padding="@dimen/padding_8"
+                    app:srcCompat="@android:drawable/sym_action_chat" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reviews"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding_space"
+        android:paddingTop="@dimen/padding_space"
+        android:paddingEnd="@dimen/padding_8"
+        android:paddingStart="@dimen/padding_space"
+        >
+
+        <TextView
+            android:id="@+id/date_tv_detail"
+            android:layout_width="0dp"
+            android:layout_weight=".6"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/release_date"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/vote_average_tv_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:text="@string/average" />
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/overview_tv_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_space"
+            android:padding="@dimen/padding_space"
+            android:textAppearance="?android:textAppearanceMediumInverse"
+            tools:text="overView" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/overview_tv_detail"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="@dimen/padding_space"-->
+            <!--android:padding="@dimen/padding_space"-->
+            <!--android:textAppearance="?android:textAppearanceSmall"-->
+            <!--tools:text="overView" />-->
+
+
+    <!--</LinearLayout>-->
+
+
+</ScrollView>
+
+

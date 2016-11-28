@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity  implements MovieClickListen
                 .add(R.id.movie_main_fragment, movieFragment)
                 .commit();
 
-        //check if Twopane
+        //check if TwoPane
         if(null != findViewById(R.id.detail_movie_fragment)){
             mIsTwoPane = true;
 

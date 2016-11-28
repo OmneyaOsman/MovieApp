@@ -38,6 +38,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -49,10 +51,13 @@ import static android.view.View.GONE;
 
 public class MovieFragment extends Fragment  {
 
-    private GridView gridView ;
+    @BindView(R.id.poster_fragment_grid_view)
+    GridView gridView ;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
+    @BindView(R.id.empty_view)
+    TextView emptyText;
     private MovieAdapter movieAdapter;
-    private ProgressBar progressBar;
-    private TextView emptyText;
     Realm realm ;
     private MovieClickListener movieListener ;
     ArrayList<Movie> movies;
@@ -74,15 +79,10 @@ public class MovieFragment extends Fragment  {
         View rootView = inflater.inflate(R.layout.movie_fragment, container, false);
         setMovieListener((MainActivity)getActivity());
 
-        progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
+        ButterKnife.bind(this ,rootView);
+
         progressBar.setVisibility(View.VISIBLE);
-        emptyText = (TextView) rootView.findViewById(R.id.empty_view);
-        gridView = (GridView) rootView.findViewById(R.id.poster_fragment_grid_view);
-
         gridView.setEmptyView(emptyText);
-
-
-
         return rootView;
     }
 

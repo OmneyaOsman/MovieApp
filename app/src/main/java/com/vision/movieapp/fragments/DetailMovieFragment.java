@@ -23,6 +23,9 @@ import com.vision.movieapp.utils.Constants;
 
 import org.parceler.Parcels;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import io.realm.Realm;
 
 /**
@@ -31,15 +34,25 @@ import io.realm.Realm;
 
 public class DetailMovieFragment extends Fragment {
 
-    private ImageView posterView;
-    private TextView overView;
-    private TextView voteAverage;
-    private TextView releaseDate;
-    private TextView movieTitle;
-    private FloatingActionButton reviewsIm;
-    private FloatingActionButton trailersIm;
-    private FloatingActionButton favoriteFab;
-    private int mId;
+    @BindView(R.id.poster_image_view_detail)
+     ImageView posterView;
+    @BindView(R.id.overview_tv_detail)
+     TextView overView;
+    @BindView(R.id.vote_average_tv_detail)
+     TextView voteAverage;
+    @BindView(R.id.date_tv_detail)
+     TextView releaseDate;
+    @BindView(R.id.movie_title)
+     TextView movieTitle;
+    @BindView(R.id.reviews_im_detail)
+     FloatingActionButton reviewsIm;
+    @BindView(R.id.trailers_image)
+     FloatingActionButton trailersIm;
+    @BindView(R.id.floatingActionButton)
+     FloatingActionButton favoriteFab;
+
+     int mId;
+    private Unbinder unbinder ;
     private Movie currentMovieObject;
     private Movie realmMovie;
     private static final String TAG = DetailMovieFragment.class.getSimpleName();
@@ -59,7 +72,7 @@ public class DetailMovieFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.detail_movie_fragment, container, false);
-        initViews(root);
+        unbinder = ButterKnife.bind(this,root);
 
         Bundle arguments = getArguments();
         Intent intent = getActivity().getIntent();
@@ -85,6 +98,7 @@ public class DetailMovieFragment extends Fragment {
         }
 
         Toast.makeText(getActivity(), currentMovieObject.getmOriginalTitle(), Toast.LENGTH_SHORT).show();
+
 
 
         reviewsIm.setOnClickListener(new View.OnClickListener() {
@@ -152,22 +166,12 @@ public class DetailMovieFragment extends Fragment {
 
     }
 
-    // initialize views
-    private void initViews(View root) {
-
-        posterView = (ImageView) root.findViewById(R.id.poster_image_view_detail);
-        movieTitle = (TextView) root.findViewById(R.id.movie_title);
-        overView = (TextView) root.findViewById(R.id.overview_tv_detail);
-        voteAverage = (TextView) root.findViewById(R.id.vote_average_tv_detail);
-        releaseDate = (TextView) root.findViewById(R.id.date_tv_detail);
-        reviewsIm = (FloatingActionButton) root.findViewById(R.id.reviews_im_detail);
-        trailersIm = (FloatingActionButton) root.findViewById(R.id.trailers_image);
-        favoriteFab = (FloatingActionButton) root.findViewById(R.id.floatingActionButton);
-
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
     }
-
-//show dialog for trailers or Reviews
+    //show dialog for trailers or Reviews
 
     public void showDialog(String path, int id) {
 

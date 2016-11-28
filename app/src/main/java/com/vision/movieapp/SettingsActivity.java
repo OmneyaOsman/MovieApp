@@ -7,7 +7,6 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -53,9 +52,7 @@ public class SettingsActivity extends AppCompatActivity {
             sortBy.setOnPreferenceChangeListener(this);
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(sortBy.getContext());
             String prefString = sharedPreferences.getString(sortBy.getKey(), "");
-            Log.d(TAG, "bindPreferenceToSummary: " + prefString );
             onPreferenceChange(sortBy, prefString);
-            Log.d(TAG, "bindPreferenceToSummary: " +prefString);
 
         }
     }
